@@ -15,7 +15,7 @@ function setup() {
   textSize(24);
   numRows = table.getRowCount();
 
-  nextButton = createButton("التالي");
+  nextButton = createButton("Next");
   nextButton.position(width / 2 - 40, height - 80);
   nextButton.mousePressed(generateQuestion);
   nextButton.hide();
@@ -27,7 +27,7 @@ function draw() {
   background(240);
   fill(0);
   textSize(28);
-  text("اختر الترجمة الصحيحة للكلمة التالية:", width / 2, 50);
+  text("Choose the correct translation for the following word:", width / 2, 50);
 
   if (correctAnswer) {
     fill(20, 30, 180);
@@ -90,10 +90,10 @@ function checkAnswer(btn, selected) {
   buttons.forEach(b => b.attribute('disabled', ''));
   if (selected === correctAnswer.answer) {
     btn.style('background-color', '#4CAF50');
-    message = "إجابة صحيحة!";
+    message = "Correct answer!";
   } else {
     btn.style('background-color', '#F44336');
-    message = `خطأ! الترجمة الصحيحة: ${correctAnswer.answer}`;
+    message = `Wrong! The correct translation is: ${correctAnswer.answer}`;
   }
   nextButton.show();
 }
